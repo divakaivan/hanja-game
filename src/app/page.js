@@ -10,57 +10,58 @@ function selectRandomItems(list, count) {
 
 export default function Home() {
   const hanjaImages = [
-    { src: "/images/가르칠 교.png", title: "가르칠 교" },
-    { src: "/images/가운데 중.png", title: "가운데 중" },
-    { src: "/images/계접 녀.png", title: "계접 녀" },
-    { src: "/images/군사 군.png", title: "군사 군" },
-    { src: "/images/긴 장.png", title: "긴 장" },
-    { src: "/images/나라 국.png", title: "나라 국" },
-    { src: "/images/나무 목.png", title: "나무 목" },
-    { src: "/images/날 생.png", title: "날 생" },
-    { src: "/images/날 일.png", title: "날 일" },
-    { src: "/images/남녘 남.png", title: "남녘 남" },
-    { src: "/images/다섯 오.png", title: "다섯 오" },
-    { src: "/images/달 월.png", title: "달 월" },
-    { src: "/images/동녘 동.png", title: "동녘 동" },
-    { src: "/images/두 이.png", title: "두 이" },
-    { src: "/images/마디 촌.png", title: "마디 촌" },
-    { src: "/images/먼저 선.png", title: "먼저 선" },
-    { src: "/images/메 산.png", title: "메 산" },
-    { src: "/images/문 문.png", title: "문 문" },
-    { src: "/images/물 수.png", title: "물 수" },
-    { src: "/images/바깥 외.png", title: "바깥 외" },
-    { src: "/images/배울 학.png", title: "배울 학" },
-    { src: "/images/백성 민.png", title: "백성 민" },
-    { src: "/images/북녘 북.png", title: "북녘 북" },
-    { src: "/images/불 화.png", title: "불 화" },
-    { src: "/images/사람 인.png", title: "사라 인" },
-    { src: "/images/서녘 서.png", title: "서녘 서" },
-    { src: "/images/넉 사.png", title: "넉 사" },
-    { src: "/images/석 삼.png", title: "석 삼" },
-    { src: "/images/쇠-성 금-김.png", title: "쇠-성 금-김" },
-    { src: "/images/아비 부.png", title: "아비 부" },
-    { src: "/images/아우 제.png", title: "아우 제" },
-    { src: "/images/아홉 구.png", title: "아홈 구" },
-    { src: "/images/어미 모.png", title: "어미 모" },
-    { src: "/images/여덟 팔.png", title: "여덟 팔" },
-    { src: "/images/여섯 륙.png", title: "여서 륙" },
-    { src: "/images/열 십.png", title: "열 십" },
-    { src: "/images/일곱 칠.png", title: "일곱 칠" },
-    { src: "/images/일만 만.png", title: "일만 만" },
-    { src: "/images/임금 왕.png", title: "임금 왕" },
-    { src: "/images/작을 소.png", title: "작을 소" },
-    { src: "/images/집 실.png", title: "집 실" },
-    { src: "/images/큰 대.png", title: "큰 대" },
-    { src: "/images/푸를 청.png", title: "푸를 청" },
-    { src: "/images/학교 교.png", title: "학교 교" },
-    { src: "/images/한 일.png", title: "한 일" },
-    { src: "/images/한국 한.png", title: "한국 한" },
-    { src: "/images/해 년.png", title: "해 년" },
-    { src: "/images/형 형.png", title: "형 형" },
-    { src: "/images/흙 토.png", title: "흙 토" },
-    { src: "/images/흰 백.png", title: "흰 백" },
+    { hanja: "校", title: "학교 교" },
+    { hanja: "敎", title: "가르칠 교" },
+    { hanja: "九", title: "아홉 구" },
+    { hanja: "國", title: "나라 국" },
+    { hanja: "軍", title: "군사 군" },
+    { hanja: "金", title: "쇠-성 금-김" },
+    { hanja: "南", title: "남녘 남" },
+    { hanja: "女", title: "계집 녀" },
+    { hanja: "年", title: "해 년" },
+    { hanja: "大", title: "큰 대" },
+    { hanja: "東", title: "동녘 동" },
+    { hanja: "六", title: "여섯 륙" },
+    { hanja: "萬", title: "일만 만" },
+    { hanja: "母", title: "어미 모" },
+    { hanja: "木", title: "나무 목" },
+    { hanja: "門", title: "문 문" },
+    { hanja: "民", title: "백성 민" },
+    { hanja: "白", title: "흰 백" },
+    { hanja: "父", title: "아비 부" },
+    { hanja: "北", title: "북녘 북" },
+    { hanja: "四", title: "넉 사" },
+    { hanja: "山", title: "메 산" },
+    { hanja: "三", title: "석 삼" },
+    { hanja: "生", title: "날 생" },
+    { hanja: "西", title: "서녘 서" },
+    { hanja: "先", title: "먼저 선" },
+    { hanja: "小", title: "작을 소" },
+    { hanja: "水", title: "물 수" },
+    { hanja: "室", title: "집 실" },
+    { hanja: "十", title: "열 십" },
+    { hanja: "五", title: "다섯 오" },
+    { hanja: "王", title: "임금 왕" },
+    { hanja: "外", title: "바깥 외" },
+    { hanja: "月", title: "달 월" },
+    { hanja: "二", title: "두 이" },
+    { hanja: "人", title: "사람 인" },
+    { hanja: "一", title: "한 일" },
+    { hanja: "日", title: "날 일" },
+    { hanja: "長", title: "긴 장" },
+    { hanja: "弟", title: "아우 제" },
+    { hanja: "中", title: "가운데 중" },
+    { hanja: "靑", title: "푸를 청" },
+    { hanja: "寸", title: "마디 촌" },
+    { hanja: "七", title: "일곱 칠" },
+    { hanja: "土", title: "흙 토" },
+    { hanja: "八", title: "여덟 팔" },
+    { hanja: "學", title: "배울 학" },
+    { hanja: "韓", title: "한국 한" },
+    { hanja: "兄", title: "형 형" },
+    { hanja: "火", title: "불 화" },
   ];
+  ("");
   const randomHanjaImages = selectRandomItems(hanjaImages, 4);
   const randomIndex = Math.floor(Math.random() * randomHanjaImages.length);
   const randomItem = randomHanjaImages[randomIndex];
@@ -88,25 +89,20 @@ export default function Home() {
           {" >"}
         </h2>
         Your Score is {score}
-        <div className="image-container">
+        <div>
           {randomHanjaImages.map((image) => (
-            <div key={image.title} className="image-wrapper">
-              <Image
-                width={400}
-                height={400}
-                key={image.title}
-                src={image.src}
-                alt={image.title}
-                className={
-                  selectedImage === image.title
-                    ? "image selected-image"
-                    : "image"
-                }
-                onClick={() => {
-                  handleImageClick(image.title);
-                }}
-              />
-            </div>
+            <p
+              key={image.hanja}
+              alt={image.hanja}
+              className={
+                selectedImage === image.hanja ? "selected-image hanja" : "hanja"
+              }
+              onClick={() => {
+                handleImageClick(image.title);
+              }}
+            >
+              {image.hanja}
+            </p>
           ))}
           {/* <button type="reset" onClick={() => setScore(0)}>
             Reset
