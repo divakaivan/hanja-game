@@ -61,7 +61,6 @@ export default function Home() {
     { hanja: "兄", title: "형 형" },
     { hanja: "火", title: "불 화" },
   ];
-  ("");
   const randomHanjaImages = selectRandomItems(hanjaImages, 4);
   const randomIndex = Math.floor(Math.random() * randomHanjaImages.length);
   const randomItem = randomHanjaImages[randomIndex];
@@ -77,13 +76,13 @@ export default function Home() {
       setResult("Correct! " + selectedImageTitle + " is " + selectedImageHanja);
     } else {
       setResult(
-        "Sorry, " +
+        "아쉽다! " +
           selectedImageHanja +
-          " is " +
+          " = " +
           selectedImageTitle +
-          "! The answer for " +
+          "! 정답은 " +
           hanjaImages.find((hanja) => hanja.title === randomItem.title).title +
-          " is: " +
+          " = " +
           randomItem.hanja
       );
     }
