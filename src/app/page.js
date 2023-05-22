@@ -90,20 +90,22 @@ export default function Home() {
   };
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+    <main className="flex justify-center items-center h-screen">
+      {/* flex h-screen justify-center items-center */}
       <div className="text-center">
+        {/* text-center */}
         다음 훈과 음에 맞는 한자를 고르십시오
         <p className={"text-4xl"}>
           {"<"}
           {randomItem.title}
           {">"}
         </p>
-        {score}점
-        <div className="flex flex-wrap gap-2">
+        <p>{score}점</p>
+        <p className="flex flex-wrap justify-around gap-3 ">
+          {/* flex flex-wrap gap-3 inline-flex */}
           {randomHanjaImages.map((image) => (
             <Button
               gradientMonochrome="success"
-              className="text-center"
               size={"xl"}
               pill={true}
               key={image.hanja}
@@ -112,13 +114,13 @@ export default function Home() {
                 handleImageClick(image.title, image.hanja);
               }}
             >
-              <p className={"text-7xl"}>{image.hanja}</p>
+              <p className={"text-8xl"}>{image.hanja}</p>
             </Button>
           ))}
           {/* <Button pill={true} onClick={() => setScore(0)}>
               Reset
             </Button> */}
-        </div>
+        </p>
         <p>{result}</p>
       </div>
     </main>
