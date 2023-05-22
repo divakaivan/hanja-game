@@ -1,5 +1,5 @@
 "use client";
-
+import { Button } from "flowbite-react";
 import { useState } from "react";
 import Image from "next/image";
 
@@ -67,47 +67,59 @@ export default function Home() {
   const randomItem = randomHanjaImages[randomIndex];
 
   const [score, setScore] = useState(0);
-  const [selectedImage, setSelectedImage] = useState(null);
+  const [selectedHanja, setSelectedHanja] = useState(null);
+  const [result, setResult] = useState(null);
 
-  const handleImageClick = (selectedImageTitle) => {
-    setSelectedImage(selectedImageTitle);
+  const handleImageClick = (selectedImageTitle, selectedImageHanja) => {
+    setSelectedHanja(selectedImageTitle);
     if (selectedImageTitle === randomItem.title) {
       setScore((prevScore) => prevScore + 1);
-      // alert("Correct!");
+      setResult("Correct! " + selectedImageTitle + " is " + selectedImageHanja);
     } else {
-      // alert("Wrong!");
+      setResult(
+        "Sorry, " +
+          selectedImageHanja +
+          " is " +
+          selectedImageTitle +
+          "! The answer for " +
+          hanjaImages.find((hanja) => hanja.title === randomItem.title).title +
+          " is: " +
+          randomItem.hanja
+      );
     }
   };
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div>
-        select hanja for
-        <h2>
-          {"< "}
+      <div className="text-center">
+        다음 훈과 음에 맞는 한자를 고르십시오
+        <p className={"text-4xl"}>
+          {"<"}
           {randomItem.title}
-          {" >"}
-        </h2>
-        Your Score is {score}
-        <div>
+          {">"}
+        </p>
+        {score}점
+        <div className="flex flex-wrap gap-2">
           {randomHanjaImages.map((image) => (
-            <p
+            <Button
+              gradientMonochrome="success"
+              className="text-center"
+              size={"xl"}
+              pill={true}
               key={image.hanja}
               alt={image.hanja}
-              className={
-                selectedImage === image.hanja ? "selected-image hanja" : "hanja"
-              }
               onClick={() => {
-                handleImageClick(image.title);
+                handleImageClick(image.title, image.hanja);
               }}
             >
-              {image.hanja}
-            </p>
+              <p className={"text-7xl"}>{image.hanja}</p>
+            </Button>
           ))}
-          {/* <button type="reset" onClick={() => setScore(0)}>
-            Reset
-          </button> */}
+          {/* <Button pill={true} onClick={() => setScore(0)}>
+              Reset
+            </Button> */}
         </div>
+        <p>{result}</p>
       </div>
     </main>
   );
