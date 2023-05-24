@@ -15,7 +15,7 @@ const HanjaTestOptions = ({ hanjaLevel }) => {
   const handleImageClick = (selectedImageTitle, selectedImageHanja) => {
     if (selectedImageTitle === randomItem.title) {
       setScore((prevScore) => prevScore + 1);
-      setResult("Correct! " + selectedImageTitle + " is " + selectedImageHanja);
+      setResult("맞습니다! " + selectedImageTitle + " = " + selectedImageHanja);
     } else {
       setGuessesLeft((previousGuessesLeft) => previousGuessesLeft - 1);
       setResult(
