@@ -1,5 +1,5 @@
 "use client";
-import { Button } from "flowbite-react";
+import { Button, Modal } from "flowbite-react";
 import { useState } from "react";
 import { selectRandomItems } from "@/app/utils";
 
@@ -10,12 +10,14 @@ const HanjaTestOptions = ({ hanjaLevel }) => {
 
   const [score, setScore] = useState(0);
   const [result, setResult] = useState(null);
+  const [guessesLeft, setGuessesLeft] = useState(3);
 
   const handleImageClick = (selectedImageTitle, selectedImageHanja) => {
     if (selectedImageTitle === randomItem.title) {
       setScore((prevScore) => prevScore + 1);
       setResult("Correct! " + selectedImageTitle + " is " + selectedImageHanja);
     } else {
+      setGuessesLeft((previousGuessesLeft) => previousGuessesLeft - 1);
       setResult(
         "아쉽다! " +
           selectedImageHanja +
@@ -38,9 +40,11 @@ const HanjaTestOptions = ({ hanjaLevel }) => {
         {">"}
       </p>
       <p>{score}점</p>
+      <p>{guessesLeft}번 남으셨어요</p>
       <p className="flex flex-wrap justify-around gap-3 ">
         {randomHanjaImages.map((image) => (
           <Button
+            disabled={guessesLeft === 0}
             gradientMonochrome="success"
             size={"xl"}
             pill={true}
@@ -55,6 +59,18 @@ const HanjaTestOptions = ({ hanjaLevel }) => {
         ))}
       </p>
       <p>{result}</p>
+      <div>
+        {guessesLeft === 0 && (
+          <Button
+            color={"failure"}
+            onClick={() => {
+              setGuessesLeft(3), setScore(0), setResult("화이팅!!!");
+            }}
+          >
+            다시 해 보세요!
+          </Button>
+        )}
+      </div>
     </div>
   );
 };
