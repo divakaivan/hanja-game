@@ -1,4 +1,5 @@
 export const hanjaLevel8 = [
+  { hanja: "校", title: "학교 교" },
   { hanja: "敎", title: "가르칠 교" },
   { hanja: "九", title: "아홉 구" },
   { hanja: "國", title: "나라 국" },
