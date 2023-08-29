@@ -5,8 +5,11 @@ import { selectRandomItems } from "@/app/utils";
 
 const HanjaTestOptions = ({ hanjaLevel }) => {
   const randomHanjaImages = selectRandomItems(hanjaLevel, 4);
-  const randomIndex = Math.floor(Math.random() * randomHanjaImages.length);
-  const randomItem = randomHanjaImages[randomIndex];
+  // const randomIndex = Math.floor(Math.random() * randomHanjaImages.length);
+  // const randomItem = randomHanjaImages[randomIndex];
+
+  const [currentRandomIndex, setCurrentRandomIndex] = useState(0);
+  const randomItem = randomHanjaImages[currentRandomIndex];
 
   const [score, setScore] = useState(0);
   const [result, setResult] = useState(null);
@@ -16,6 +19,10 @@ const HanjaTestOptions = ({ hanjaLevel }) => {
     if (selectedImageTitle === randomItem.title) {
       setScore((prevScore) => prevScore + 1);
       setResult("맞습니다! " + selectedImageTitle + " = " + selectedImageHanja);
+      setCurrentRandomIndex((prevIndex) => {
+        const newIndex = (prevIndex + 1) % randomHanjaImages.length;
+        return newIndex;
+      });
     } else {
       setGuessesLeft((previousGuessesLeft) => previousGuessesLeft - 1);
       setResult(
@@ -28,6 +35,10 @@ const HanjaTestOptions = ({ hanjaLevel }) => {
           " = " +
           randomItem.hanja
       );
+      setCurrentRandomIndex((prevIndex) => {
+        const newIndex = (prevIndex + 1) % randomHanjaImages.length;
+        return newIndex;
+      });
     }
   };
 

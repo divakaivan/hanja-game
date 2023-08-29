@@ -10,6 +10,9 @@ export default function Home() {
         <p>
           <Link href="/7ii">7급II</Link>
         </p>
+        <p>
+          <Link href="/7">7급</Link>
+        </p>
       </button>
     </main>
   );
