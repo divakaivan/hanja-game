@@ -5,10 +5,10 @@ import { selectRandomItems } from "@/app/utils";
 
 const HanjaTestOptions = ({ hanjaLevel }) => {
   const randomHanjaImages = selectRandomItems(hanjaLevel, 4);
+
   const [currentRandomIndex, setCurrentRandomIndex] = useState(0);
   const randomItem = randomHanjaImages[currentRandomIndex];
 
-  const [gameType, setGameType] = useState(0)
   const [score, setScore] = useState(0);
   const [result, setResult] = useState(null);
   const [guessesLeft, setGuessesLeft] = useState(3);
@@ -42,20 +42,12 @@ const HanjaTestOptions = ({ hanjaLevel }) => {
 
   return (
     <div className="text-center">
-      <Button pill={true} gradientMonochrome="success" onClick={()=>setGameType(prevGameType=>!prevGameType)}>모드 변경</Button>
-      {gameType == 0 ? (<div>다음 훈과 음에 맞는 한자를 고르십시오
-      <p className={"text-4xl"}>
+      다음 한자에 맞는 훈과 음을 고르십시오
+      <p className={"text-8xl"}>
         {"<"}
-        {randomItem.title}
+        {randomItem.hanja}
         {">"}
-      </p></div>) : (<div>다음 훈과 음에 맞는 한자를 고르십시오
-  <p className={"text-8xl"}>
-  {"<"}
-  {randomItem.hanja}
-  {">"}
-  </p></div>)}
-      
-      
+      </p>
       <p>{score}점</p>
       <p>{guessesLeft}번 남으셨어요</p>
       <p className="flex flex-wrap justify-around gap-3 ">
@@ -65,15 +57,13 @@ const HanjaTestOptions = ({ hanjaLevel }) => {
             gradientMonochrome="success"
             size={"xl"}
             pill={true}
-            key={image.hanja}
-            alt={image.hanja}
+            key={image.title}
+            alt={image.title}
             onClick={() => {
-              handleImageClick(image.title, image.hanja);
+              handleImageClick(image.hanja, image.title);
             }}
           >
-                  {gameType == 0 ? (<p className={"text-8xl"}>{image.hanja}</p>
-) : (<p className={"text-4xl"}>{image.title}</p>
-)}
+            <p className={"text-4xl"}>{image.title}</p>
           </Button>
         ))}
       </p>
@@ -95,4 +85,3 @@ const HanjaTestOptions = ({ hanjaLevel }) => {
 };
 
 export default HanjaTestOptions;
-
